@@ -1,0 +1,19 @@
+
+default export
+named export _ using curly braces, with the same name as the file
+
+when handling css using string, we use lower case for the property names, and hyphenate(-) them, also give semicolon at the end
+Just like css files
+// e.g. 
+    const Component = styled(Box)`
+    height: 100vh;
+    background: #DCDCDC;
+`
+
+when handling css using object, we use camelCase for the property names
+// e.g. 
+    const dialogStyle = { // object to style the dialog
+        height: '95%',
+        width: '60%',
+        maxHeight: '100',
+    }
