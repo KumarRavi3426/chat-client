@@ -1,36 +1,66 @@
 import React from 'react'
-import {Box, Drawer, Typography} from '@mui/material';
+import { Box, Drawer, styled, Typography } from '@mui/material';
 import { ArrowBack } from '@mui/icons-material';
+import Profile from './Profile';
 
-const drawerStyle={
+const drawerStyle = {
   left: 20,
   top: 17,
   height: '95%',
-  width: '40%',
+  width: '30%',
   boxShadow: 'none'
 }
 
-const InfoDrawer = ({open, setOpen}) => {
+const Header = styled(Box)`
+  background: #008069;
 
-  const handleClose = ()=>{
+  height: 107px;
+
+  color: #FFFFFF;
+
+  display: flex;
+
+  & > svg, & > p {
+  margin-top: auto;
+  padding: 15px;
+  font-weight: 600
+  }
+`
+
+const Component = styled(Box)`
+  background: #ededed;
+  height: 85%;
+`;
+
+
+const Text = styled(Typography)`
+    font-size: 18px;
+`
+
+const InfoDrawer = ({ open, setOpen }) => {
+
+  const handleClose = () => {
     setOpen(false);
   }
 
   return (
-      <Drawer
-        open={open}
-        onClose={handleClose}
-        PaperProps={{sx: drawerStyle}}
-        style={{zIndex: '1500'}}
-      >
-        <Box>
-          <ArrowBack onClick={handleClose} />  
-          <Typography>Profile</Typography>
-        </Box>
-        <Box>
+    <Drawer
+      open={open}
+      onClose={handleClose}
+      PaperProps={{ sx: drawerStyle }}
+      style={{ zIndex: '1500' }}
+    >
+      <Header>
 
-        </Box>
-      </Drawer>
+        <ArrowBack onClick={handleClose} />
+        <Text>Profile</Text>
+
+      </Header>
+
+      <Component>
+        <Profile/>
+      </Component>
+    </Drawer>
   )
 }
 

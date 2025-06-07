@@ -36,6 +36,7 @@ const Image = styled('img')({
 const Header = () => {
     const { account } = useContext(AccountContext);
 
+
     const [openDrawer, setOpenDrawer] = useState(false);
 
     const toggleDrawer = ()=>{
@@ -46,8 +47,10 @@ const Header = () => {
             <Component>
                 <Image src={account.picture} alt="dp" onClick={()=> toggleDrawer()} />
                 <Wrapper>
+                    {/* to delete */}
+                    <button style={{fontSize: '15px'}} onClick={()=> {localStorage.clear(); window.location.reload();}}>Logout</button>
                     <MessageIcon />
-                    <HeaderMenu/>
+                    <HeaderMenu setOpenDrawer={setOpenDrawer} />
                 </Wrapper>
             </Component>
             <InfoDrawer open={openDrawer} setOpen={setOpenDrawer} />

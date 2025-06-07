@@ -2,6 +2,8 @@
 default export
 named export _ using curly braces, with the same name as the file
 
+// when using styled components, we can use the css prop to apply styles
+
 when handling css using string, we use lower case for the property names, and hyphenate(-) them, also give semicolon at the end
 Just like css files
 // e.g. 
@@ -17,3 +19,4 @@ when handling css using object, we use camelCase for the property names
         width: '60%',
         maxHeight: '100',
     }
+

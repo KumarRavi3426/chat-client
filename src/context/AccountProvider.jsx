@@ -9,6 +9,9 @@ const AccountProvider = ({children}) => {
         return stored ? JSON.parse(stored) : undefined;
     });
 
+    const [person, setPerson] = useState({});
+
+
     // Sync account to localStorage whenever it changes
     useEffect(() => {
         if (account !== undefined) {
@@ -18,7 +21,7 @@ const AccountProvider = ({children}) => {
 
     return (
         // what we give inside value, can be exported from the context
-        <AccountContext.Provider value={{ account, setAccount }}>   
+        <AccountContext.Provider value={{ account, setAccount, person, setPerson }}>   
             {children}
         </AccountContext.Provider>
     )

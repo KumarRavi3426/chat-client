@@ -1,17 +1,25 @@
-import { Box } from '@mui/material'
-import React from 'react'
+import { Box, styled } from '@mui/material'
+import React, { useState } from 'react'
 import Header from './Header'
 import Search from './Search'
+import Conversations from './Conversations'
+
+const Container = styled(Box)`
+  height: 100%;
+`
 
 const Menu = () => {
+
+  const [text, setText] = useState('');
     
 
   return (
     <>
-        <Box>
+        <Container>
             <Header/>
-            <Search/>
-        </Box>
+            <Search setText = {setText}/>
+            <Conversations text = {text}/>
+        </Container>
     </>
   )
 }

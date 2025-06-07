@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Dialog, Box, styled } from '@mui/material'
 import Menu from './menu/Menu'
 import EmptyChat from './chat/EmptyChat'
+import ChatBox from './chat/ChatBox'
+import { AccountContext } from '../../context/AccountProvider'
 
 const Component = styled(Box)`  
   display : flex;
@@ -18,7 +20,7 @@ const RightComponent = styled(Box)`
     border-left: 1px solid rgba(0,0,0, 0.14);
 `
 
-const dialogStyle = { // object to style the dialog
+const dialogStyle = { // object to style the dialog, passed using PaperProps, using sx:
     height: '96%',
     width: '100%',
     margin: '20px',
@@ -29,26 +31,29 @@ const dialogStyle = { // object to style the dialog
 }
 
 const ChatDialog = () => {
-  return (
-    <>
-        <Dialog
-            open={true}
-            PaperProps={{sx: dialogStyle}}
-            hideBackdrop ={true}
-            maxWidth={'md'}
-        >
-            <Component>
-                <LeftComponent>
-                    <Menu/>
-                </LeftComponent>
-                <RightComponent>
-                    <EmptyChat/>
-                </RightComponent>
-            </Component>
 
-        </Dialog>
-    </>
-  )
+    const { person } = useContext(AccountContext);
+
+    return (
+        <>
+            <Dialog
+                open={true}
+                PaperProps={{ sx: dialogStyle }}
+                hideBackdrop={true}
+                maxWidth={'md'}
+            >
+                <Component>
+                    <LeftComponent>
+                        <Menu />
+                    </LeftComponent>
+                    <RightComponent>
+                        {Object.keys(person).length ? <ChatBox/> : <EmptyChat/>}
+                    </RightComponent>
+                </Component>
+
+            </Dialog>
+        </>
+    )
 }
 
 export default ChatDialog
