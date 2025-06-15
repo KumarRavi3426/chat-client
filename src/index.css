@@ -4,3 +4,17 @@ html, body, #root {
   margin: 0;
   padding: 0;
 }
+
+::-webkit-scrollbar{
+  width: 6px!important;
+  /* height: 6px!important; */
+}
+
+::-webkit-scrollbar-track{
+  background: hsla(0, 0%, 100%, 0.1);
+}
+
+::-webkit-scrollbar-thumb{
+  height: auto;
+  background: rgba(0,0,0,0.2);
+}

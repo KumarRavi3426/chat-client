@@ -19,11 +19,12 @@ const StyledDivider = styled(Divider)`
 
 const Conversations = ({text}) => {
 
-    const {account} = useContext(AccountContext);
+    const {account, socket, setActiveUsers} = useContext(AccountContext);
 
     const [users, setUsers] = useState([]);
     const [allUsers, setAllUsers] = useState([]);
     
+    // my implementation of implementing the search filter in conversations
     let response;
     useEffect(()=>{
         const fetchData = async()=>{
@@ -36,7 +37,7 @@ const Conversations = ({text}) => {
         fetchData();
         
     },[])
-    
+
     useEffect(()=>{
         const filteredData = allUsers.filter(user=> user.name.toLowerCase().includes(text.toLowerCase()))
         setUsers(filteredData);
@@ -44,11 +45,19 @@ const Conversations = ({text}) => {
     }, [text])
 
 
+    useEffect(()=>{
+        socket.current.emit("addUsers", account)
+        socket.current.on("getUsers", (users)=>{
+            setActiveUsers(users)
+        })
+    },[account])
+
+
   return (
     <>
         <Component>
             {
-                users.map((user)=> (
+                users?.map((user)=> (
                     user.sub!== account.sub &&
                     <div key={user._id || user.id} >
                         <Conversation user={user}/>

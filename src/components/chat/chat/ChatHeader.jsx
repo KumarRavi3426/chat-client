@@ -3,6 +3,7 @@ import React from 'react'
 import { emptyProfilePicture } from '../../../constants/data'
 import { MoreVert, Search } from '@mui/icons-material'
 import { AccountContext } from '../../../context/AccountProvider'
+import { useContext } from 'react'
 
 const Header = styled(Box)`
     height: 44px;
@@ -40,12 +41,16 @@ const Name = styled(Typography)`
 
 const ChatHeader = ({person}) => {
 
+    const {activeUsers} = useContext(AccountContext)
+
+
     return (
         <Header>
             <Image src={person.picture} alt='dp'></Image>
             <Box>
                 <Name>{person.name}</Name>
-                <Status>Offline</Status>
+                {/* try .filter() in place of .find() */}
+                <Status> {activeUsers?.find(user=> user.sub===person.sub) ? "Online": "Offline"} </Status>
             </Box>
             <RightContainer>
                 <Search />

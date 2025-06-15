@@ -20,3 +20,13 @@ when handling css using object, we use camelCase for the property names
         maxHeight: '100',
     }
 
+
+Doubts:--
+
+webkit css _ index.css
+
+useRef
+https://react.dev/reference/react/useRef#usage
+
+conversation.jsx
+on production level, change it to backend link
