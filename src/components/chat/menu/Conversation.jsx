@@ -37,8 +37,10 @@ const Text = styled(Typography)`
     color: rgba(0, 0, 0, 0.6);
     font-size: 14px;
 `;
+
 // url added to check if it is a media
 const url = import.meta.env.VITE_BACKEND_URL;
+// const url = "localhost";
 
 const Conversation = ({ user }) => {
     const { setPerson, account, newMessageFlag } = useContext(AccountContext);
