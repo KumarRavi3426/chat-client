@@ -37,6 +37,8 @@ const Text = styled(Typography)`
     color: rgba(0, 0, 0, 0.6);
     font-size: 14px;
 `;
+// url added to check if it is a media
+const url = import.meta.env.VITE_BACKEND_URL;
 
 const Conversation = ({ user }) => {
     const { setPerson, account, newMessageFlag } = useContext(AccountContext);
@@ -72,7 +74,7 @@ const Conversation = ({ user }) => {
                 </Container>
                 <Box>
                     {/* In the production level put the backend url, cuz when uploading media, we set it as its name */}
-                    <Text>{message?.text?.includes('localhost') ? 'media' : message.text}</Text>
+                    <Text>{message?.text?.includes(url) ? 'media' : message.text}</Text>
                 </Box>
             </Box>
         </Component>
