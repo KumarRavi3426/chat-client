@@ -21,7 +21,7 @@ const AccountProvider = ({ children }) => {
   const socket = useRef();
 
   useEffect(() => {
-    socket.current = io("ws://localhost:9000");
+    socket.current = io(import.meta.env.VITE_SOCKET_URL || "ws://localhost:9000");
   }, []);
 
   // Sync account to localStorage whenever it changes
