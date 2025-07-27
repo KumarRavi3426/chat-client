@@ -67,7 +67,7 @@ const LoginDialog = () => {
     <Dialog
       open={true}
       // sx={{dialogStyle}}
-      PaperProps={{ sx: dialogStyle }}  // why did we use double braces
+      PaperProps={{ sx: dialogStyle }}  // why did we use double braces, cuz passing as options
       hideBackdrop= {true}  
     >
       <Component>

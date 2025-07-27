@@ -8,7 +8,7 @@ import AccountProvider from './context/AccountProvider.jsx';
 
 
 function App() {
-  const clientId = '265459465973-rviljncqb374qtil4d9r5jphm58o0k6f.apps.googleusercontent.com';
+  const clientId = import.meta.env.VITE_CLIENT_ID;  // secured the 
   return (
     <GoogleOAuthProvider clientId={clientId}>
       <AccountProvider>
