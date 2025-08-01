@@ -55,8 +55,10 @@ const Messages = ({ person, conversation }) => {
   }, [messages])
   
   useEffect(()=>{
-    incomingMessage && conversation?.members?.includes(incomingMessage.senderId) &&
-      setMessages(prev => [...prev, incomingMessage] )
+    if (incomingMessage && conversation?.members?.includes(incomingMessage.senderId)) {
+      setMessages(prev => [...prev, incomingMessage]);
+      setNewMessageFlag(prev => !prev);
+    }
 
       // Notification.requestPermission()
       // new Notification("New message", {

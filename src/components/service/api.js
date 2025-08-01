@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const url = import.meta.env.VITE_BACKEND_URL;
-// const url = "http://localhost:8000";
+const url = import.meta.env.VITE_BACKEND_URL || "http://localhost:8000";
 
 export const addUser = async (data)=>{
     try{
