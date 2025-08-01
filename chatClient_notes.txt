@@ -20,6 +20,16 @@ when handling css using object, we use camelCase for the property names
         maxHeight: '100',
     }
 
+If you want to send data along with a request
+get Request _ pass params as options, at the backend receive it as  req.query.
+Post Request _ req.body.
+dynamic part _ received in backend as :id _ req.params.id
+
+useRef is used when
+    don't want to trigger rerender
+    want the variable to be unaffected by rerender
+    direct dom manipulation using ref
+
 
 Doubts:--
 
@@ -28,5 +38,10 @@ webkit css _ index.css
 useRef
 https://react.dev/reference/react/useRef#usage
 
+
+------- Final Changes:-------
+
 conversation.jsx
 on production level, change it to backend link
+
+In AccountProvider.jsx, the socket link is hard-coded, it may need to be changed to the backend link on production level.
