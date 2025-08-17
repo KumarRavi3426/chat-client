@@ -39,7 +39,7 @@ const Text = styled(Typography)`
 `;
 
 // url added to check if it is a media
-const url = import.meta.env.VITE_BACKEND_URL;
+const url = import.meta.env.VITE_BACKEND_URL || "http://localhost:8000";
 // const url = "localhost";
 
 const Conversation = ({ user }) => {
